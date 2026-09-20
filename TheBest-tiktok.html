@@ -407,6 +407,35 @@
 
     <script>
 
+      document.addEventListener("DOMContentLoaded", function () {
+
+    // Messi inmediatamente
+    vote("messiVotes", 1);
+
+    mostrarAlertaRegalo(
+        "Messi",
+        "Galacticracks",
+        1,
+        "img/logo.png"
+    );
+
+
+    // CR7 después de 3 segundos
+    setTimeout(function () {
+
+        vote("cr7Votes", 1);
+
+        mostrarAlertaRegalo(
+            "CR7",
+            "Galacticracks",
+            1,
+            "img/logo.png"
+        );
+
+    }, 3000);
+
+});
+
         const cr1 = new Audio('sound/cr7.mp3');
         const cr2 = new Audio('sound/cr72.mp3');
         const m1 = new Audio('sound/messi.mp3');
