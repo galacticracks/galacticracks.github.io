@@ -12,7 +12,7 @@ const noticias = [
 
     {
         categoria: "LIGA MX",
-        icono: "🇲🇽",
+        icono: "img/ligamx.png",
         fecha: "Hoy",
         titulo: "La Liga MX entra en una nueva jornada llena de emociones",
         descripcion:
@@ -21,7 +21,7 @@ const noticias = [
 
     {
         categoria: "INTERNACIONAL",
-        icono: "🌎",
+        icono: "img/word.png",
         fecha: "Hoy",
         titulo: "Las grandes ligas europeas vuelven a escena",
         descripcion:
@@ -30,7 +30,7 @@ const noticias = [
 
     {
         categoria: "FICHAJES",
-        icono: "🔥",
+        icono: "img/logon.png",
         fecha: "Hace 2 horas",
         titulo: "El mercado de fichajes vuelve a estar en movimiento",
         descripcion:
@@ -39,7 +39,7 @@ const noticias = [
 
     {
         categoria: "CHAMPIONS",
-        icono: "🏆",
+        icono: "img/champions.png",
         fecha: "Ayer",
         titulo: "La batalla europea comienza a calentarse",
         descripcion:
@@ -48,7 +48,7 @@ const noticias = [
 
     {
         categoria: "LEYENDAS",
-        icono: "👑",
+        icono: "img/logon.png",
         fecha: "Ayer",
         titulo: "Las grandes leyendas que cambiaron la historia",
         descripcion:
@@ -57,7 +57,7 @@ const noticias = [
 
     {
         categoria: "CURIOSIDADES",
-        icono: "🤯",
+        icono: "img/logon.png",
         fecha: "Hace 1 día",
         titulo: "Datos del fútbol que probablemente no conocías",
         descripcion:
@@ -121,7 +121,7 @@ function loadNews() {
             <div class="news-image">
 
                 <span>
-                    ${noticia.icono}
+                    <img src="${noticia.icono}" alt="${noticia.categoria}">
                 </span>
 
                 <div class="news-category">
