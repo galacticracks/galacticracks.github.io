@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>CR7 vs Messi - Votación</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+          
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+        .image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+        }
+
+        /* Footer fijo con botones */
+        .vote-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 700px;  /* ancho máximo */
+    margin: 0 auto;    /* centrar horizontal */
+    background: rgba(0,0,0,0.85);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+    z-index: 9999;
+    box-shadow: 0 -3px 8px rgba(0,0,0,0.7);
+}
+
+        .vote-box {
+            background: #111;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .vote-box label {
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            text-align: center;
+            font-size: 1.3em;
+            width: 100%;
+           
+            margin-bottom: 10px;
+            border-radius: 0.375rem;
+            border: 1px solid #ced4da;
+            padding: 0.375rem 0.75rem;
+            box-sizing: border-box;
+            color: #212529;
+            background-color: #fff;
+            user-select: none;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #86b7fe;
+            box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+        }
+
+        button.btnVoto {
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 10px;
+            border: none;
+            padding: 8px 15px;
+            color: #fff;
+            width: 100%;
+            max-width: 130px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btnVoto.cr7 {
+            background-color: #9f0030;
+        }
+        .btnVoto.messi {
+            background-color: #1c447f;
+        }
+        .btnVoto:hover {
+            filter: brightness(1.15);
+        }
+
+        .gifts {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+      
+        }
+
+      
+        .gift-button {
+    display: flex;
+    flex-direction: column; /* Hace que el contenido sea vertical */
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+}
+
+.gift-button img {
+    width: 50px; /* ajusta el tamaño si lo deseas */
+    height: auto;
+}
+
+.gift-button p {
+    margin: 5px 0 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+
+    
+
+        /* Ajuste para pantallas muy chicas */
+        @media (max-width: 400px) {
+            .vote-footer {
+                grid-template-columns: 1fr 1fr;
+                padding: 10px 10px;
+                gap: 10px;
+            }
+            input[type="text"], button.btnVoto {
+                max-width: 100%;
+            }
+
+           .container {
+                width: auto;
+            }
+        }
+
+/*corazones flotando*/
+
+        .floating-heart {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    width: 30px;
+    height: 30px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); /* ícono de corazón */
+    background-size: cover;
+    opacity: 1;
+    animation: floatUp 2.5s ease-out forwards;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-200px) scale(1.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-500px) scale(0.8);
+        opacity: 0;
+    }
+}
+
+
+@keyframes confetiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+.confeti {
+    position: fixed;
+    top: -20px;
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    opacity: 0.9;
+    animation: confetiFall 3s linear forwards;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+
+/*ESTILO DE ALERTA DE REGALO*/
+.gift-alert {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.438); /* Fondo negro translúcido */
+    color: #fff;
+    border-radius: 16px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 1em;
+    z-index: 10000;
+    box-shadow: 0 6px 20px rgba(73, 73, 73, 0.6);
+    animation: fadeOut 3s ease forwards;
+    backdrop-filter: blur(4px); /* efecto cristal moderno */
+}
+
+.gift-alert img {
+    width: 36px;
+    height: auto;
+    border-radius: 8px;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-50%) scale(1.05);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) scale(0.9);
+    }
+}
+
+
+
+
+.mensaje-votacion {
+    position: fixed;
+    top: 310px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 95%;
+    max-width: 700px;
+    overflow: hidden;
+    background: rgba(233, 3, 3, 0.75);
+    border-radius: 12px;
+    z-index: 9998;
+    padding: 5px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+}
+
+.mensaje-marquesina {
+    display: inline-block;
+    white-space: nowrap;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+    padding-left: 100%;
+    animation: scrollMensaje 10s linear infinite;
+}
+
+@keyframes scrollMensaje {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/*BARRA DE ESTADISTICA DE VOTOS*/
+.barra-votos {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 700px;
+    height: 20px;
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 9999;
+}
+
+.barra-roja, .barra-azul {
+    height: 100%;
+    float: left;
+}
+
+.barra-roja {
+    background-color: #9f0030;
+    width: 50%; /* se ajustará por JS */
+    transition: width 0.5s ease;
+}
+
+.barra-azul {
+    background-color: #1c447f;
+    width: 50%; /* se ajustará por JS */
+    transition: width 0.5s ease;
+}
+
+.icono-movible {
+    position: absolute;
+    top: -4px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 16px;
+
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(0,0,0,0.6);
+    transition: left 0.5s ease;
+    z-index: 10000;
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <center><h1 style="position: fixed; width: 100%; left: 50%; transform: translateX(-50%); font-size: 20px;">
+        <!--Escribe tu favorito<br>-->
+        ¿Quién es el mejor?</h1></center>
+
+        <div class="barra-votos">
+        <div class="barra-roja" id="barraCR7"></div>
+        <div class="barra-azul" id="barraMessi"></div>
+        <div class="icono-movible" id="indicador">⚽</div>
+        </div>
+
+    <div class="container">
+        <img src="cr7messi10x.jpg" alt="CR7 vs Messi" class="image" />
+    </div>
+
+   <!--<div class="mensaje-votacion">
+    <div class="mensaje-marquesina">
+        ¡Dale 1 punto a tu favorito escribiendo su nombre!
+    </div>
+    </div>-->
+
+    <div class="vote-footer">
+        <!-- CR7 Votación -->
+        <div class="vote-box">
+   
+            <input type="text" id="cr7Votes" value="176" readonly />
+            <button class="btnVoto cr7" onclick="vote('cr7Votes', 1); mostrarAlertaRegalo('CR7', 'Galacticracks', 1, 'img/logo.png');">Votar</button>
+            <div class="gifts">  
+                <button class="gift-button" onclick="vote('cr7Votes', 5); mostrarAlertaRegalo('CR7', 'Rosa', 5, 'img/cr71.jpg');" title="Rosa (5)"  >
+                    <img src="img/cr71.jpg" alt="Rosa" /> <p>5</p>
+                </button>
+                <button class="gift-button" onclick="vote('cr7Votes', 10); mostrarAlertaRegalo('CR7', 'Corazón', 10, 'img/cr710.jpg');"  title="Corazón (10)">
+                    <img src="img/cr710.jpg" alt="Corazón" /> <p>10</p>
+                </button>
+               <!--- <button class="gift-button" onclick="vote('cr7Votes', 30)" title="Regalo (30)">
+                    <img src="img/cr730.jpg" alt="Regalo" /> <p>30</p>
+                </button>-->
+            </div>
+        </div>
+
+        <!-- Messi Votación -->
+        <div class="vote-box">
+       
+            <input type="text" id="messiVotes" value="134" readonly />
+            <button class="btnVoto messi" onclick="vote('messiVotes', 1); mostrarAlertaRegalo('Messi', 'Galacticracks', 1, 'img/logo.png');">Votar</button>
+            <div class="gifts">
+                <button class="gift-button" onclick="vote('messiVotes', 5); mostrarAlertaRegalo('Messi', 'Corazón', 10, 'img/messi10.jpg');" title="Rosa (5)" >
+                    <img src="img/messi1.jpg" alt="Rosa" /> <p>5</p>
+                </button>
+                <button class="gift-button" onclick="vote('messiVotes', 10); mostrarAlertaRegalo('Messi', 'Corazón', 10, 'img/messi10.jpg');" title="Corazón (10)">
+                    <img src="img/messi10.jpg" alt="Corazón" /> <p>10</p>
+                </button>
+                <!--<button class="gift-button" onclick="vote('messiVotes', 30)" title="Regalo (30)">
+                    <img src="img/messi30.jpg" alt="Regalo" /> <p>30</p>
+                </button>-->
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const cr1 = new Audio('sound/cr7.mp3');
+        const cr2 = new Audio('sound/cr72.mp3');
+        const m1 = new Audio('sound/messi.mp3');
+        const m2 = new Audio('sound/messi2.mp3');
+
+        // Precarga todos
+        [cr1, cr2, m1, m2].forEach(audio => {
+            audio.preload = 'auto';
+            audio.load();
+        });
+
+        function reproducir(audio) {
+            audio.currentTime = 0;
+            audio.play();
+        }
+
+        function vote(id, amount) {
+            const input = document.getElementById(id);
+            const valorActual = parseInt(input.value.replace(/,/g, "")) || 0;
+            const nuevoValor = valorActual + amount;
+            input.value = formatearConComas(nuevoValor);
+
+        
+
+            const lado = id === 'cr7Votes' ? 'izquierdo' : 'derecho';
+            //lanzarCorazones(7, lado);
+            //lanzarCorazon(lado); // 👈 aquí llamamos la animación
+             
+            if (amount >= 5) {
+                reproducir(lado === 'izquierdo' ? cr2 : m2);
+                lanzarConfeti(500);
+            } else {
+                reproducir(lado === 'izquierdo' ? cr1 : m1);
+            }
+        
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    lanzarCorazon(lado);
+                }, i * 200); // cada corazón se lanza con 200ms de diferencia
+            }
+
+             actualizarBarra(); // 👈 Aquí actualizamos la barra visual
+        }
+
+        function formatearConComas(numero) {
+            return numero.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        function lanzarCorazon(lado = 'derecho') {
+            const heart = document.createElement('div');
+            heart.classList.add('floating-heart');
+
+            // Tamaño y posición aleatoria
+            const randomOffset = Math.random() * 60 - 30; // -30 a +30
+            const randomSize = 20 + Math.random() * 20; // 20 a 40 px
+
+            heart.style.width = heart.style.height = randomSize + 'px';
+
+            // Posición según el lado
+            if (lado === 'izquierdo') {
+                heart.style.left = (30 + randomOffset) + 'px';
+            } else {
+                heart.style.right = (30 + randomOffset) + 'px';
+            }
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2500);
+        }
+
+
+
+        const images = ['❤️', '💖', '💜', '💙', '🧡', '💚', '💛'];
+
+
+        function lanzarCorazones(cantidad = 5, lado = 'derecho') {
+    for (let i = 0; i < cantidad; i++) {
+        const heart = document.createElement('div');
+        heart.textContent = images[Math.floor(Math.random() * images.length)];
+
+        heart.style.position = 'fixed';
+        heart.style.bottom = (30 + i * 25 + Math.random() * 15) + 'px'; // 👈 más separación vertical
+        heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+        heart.style.opacity = Math.random() * 0.6 + 0.4;
+        heart.style.transform = `rotate(${Math.random() * 360}deg)`;
+        heart.style.zIndex = 9999;
+        heart.style.pointerEvents = 'none';
+        heart.style.animation = 'floatUp 3s ease-out forwards';
+  
+
+        const offsetX = Math.random() * 60 - 30; // 👈 más controlado horizontalmente
+        if (lado === 'izquierdo') {
+            heart.style.left = (30 + offsetX) + 'px';
+        } else {
+            heart.style.right = (30 + offsetX) + 'px';
+        }
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 3000);
+    }
+}
+
+
+
+        function lanzarConfeti(cantidad = 100) {
+            const colores = ['#ff0', '#f0f', '#0ff', '#0f0', '#f00', '#00f'];
+
+            for (let i = 0; i < cantidad; i++) {
+                const confeti = document.createElement('div');
+                confeti.classList.add('confeti');
+
+                // Tamaño aleatorio
+                const size = Math.random() * 8 + 4;
+                confeti.style.width = size + 'px';
+                confeti.style.height = size + 'px';
+
+                // Color aleatorio
+                confeti.style.backgroundColor = colores[Math.floor(Math.random() * colores.length)];
+
+                // Posición horizontal aleatoria
+                confeti.style.left = Math.random() * 100 + 'vw';
+
+                // Velocidad y duración aleatoria
+                confeti.style.animationDuration = (2 + Math.random() * 2) + 's';
+
+                document.body.appendChild(confeti);
+
+                // Eliminar tras la animación
+                setTimeout(() => {
+                    confeti.remove();
+                }, 4000);
+            }
+        }
+
+
+        function mostrarAlertaRegalo(jugador, regalo, cantidad, imagenURL) {
+            const alerta = document.createElement('div');
+            alerta.classList.add('gift-alert');
+
+            alerta.innerHTML = `
+                <img src="${imagenURL}" alt="${regalo}">
+                <span>${jugador.toUpperCase()} recibió ${regalo} x${cantidad}</span>
+            `;
+
+            document.body.appendChild(alerta);
+
+            setTimeout(() => {
+                alerta.remove();
+            }, 3000);
+        }
+
+
+        function actualizarBarra() {
+            const cr7 = parseInt(document.getElementById('cr7Votes').value.replace(/,/g, "")) || 0;
+            const messi = parseInt(document.getElementById('messiVotes').value.replace(/,/g, "")) || 0;
+            const total = cr7 + messi;
+
+            const porcentajeCR7 = total > 0 ? (cr7 / total) * 100 : 50;
+            const porcentajeMessi = 100 - porcentajeCR7;
+
+            document.getElementById('barraCR7').style.width = porcentajeCR7 + '%';
+            document.getElementById('barraMessi').style.width = porcentajeMessi + '%';
+
+            const barra = document.querySelector('.barra-votos');
+            const anchoBarra = barra.offsetWidth;
+            const icono = document.getElementById('indicador');
+
+            const posicion = (porcentajeCR7 / 100) * anchoBarra - icono.offsetWidth / 2;
+            icono.style.left = posicion + 'px';
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>

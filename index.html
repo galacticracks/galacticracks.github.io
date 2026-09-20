@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <title>Galacticracks | El fútbol también es un universo</title>
+
+    <meta
+        name="description"
+        content="Galacticracks - Noticias, análisis, curiosidades y pasión por el fútbol."
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+         FONDO ESPACIAL
+    =========================================== -->
+
+    <div class="space-bg"></div>
+    <div class="stars stars-1"></div>
+    <div class="stars stars-2"></div>
+
+
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+            <a href="#" class="brand" onclick="scrollToSection('inicio')">
+
+                <img
+                    src="img/logo.png"
+                    alt="Galacticracks"
+                    class="logo"
+                >
+
+            </a>
+
+
+            <!-- MENU DESKTOP -->
+
+            <nav class="desktop-menu">
+
+                <a href="#inicio">Inicio</a>
+
+                <a href="#noticias">Noticias</a>
+
+                <a href="#analisis">Análisis</a>
+
+                <a href="#curiosidades">Curiosidades</a>
+
+                <a href="#partidos">Partidos</a>
+
+                <a href="#categorias">Universo</a>
+
+            </nav>
+
+
+            <!-- BOTON MENU MOVIL -->
+
+            <button
+                class="menu-button"
+                id="menuButton"
+                onclick="toggleMenu()"
+            >
+                ☰
+            </button>
+
+        </div>
+
+
+        <!-- MENU MOVIL -->
+
+        <nav class="mobile-menu" id="mobileMenu">
+
+            <a href="#inicio" onclick="closeMenu()">Inicio</a>
+
+            <a href="#noticias" onclick="closeMenu()">Noticias</a>
+
+            <a href="#analisis" onclick="closeMenu()">Análisis</a>
+
+            <a href="#curiosidades" onclick="closeMenu()">Curiosidades</a>
+
+            <a href="#partidos" onclick="closeMenu()">Partidos</a>
+
+            <a href="#categorias" onclick="closeMenu()">Universo</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ==========================================
+         HERO
+    =========================================== -->
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-image">
+
+                <img
+                    src="img/banner1.png"
+                    alt="Galacticracks - El fútbol también es un universo"
+                >
+
+            </div>
+
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+
+                    ⚽ EL FÚTBOL TAMBIÉN ES UN UNIVERSO
+
+                </div>
+
+
+                <h1>
+<br>
+                  <!---  GALACTI<span>CRACKS</span> -->
+
+                </h1>
+
+
+                <p>
+
+                    Noticias, análisis, curiosidades y toda la pasión
+                    del fútbol en un solo lugar.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <button
+                        class="btn-primary"
+                        onclick="scrollToSection('noticias')"
+                    >
+                        🔥 Últimas noticias
+                    </button>
+
+
+                    <button
+                        class="btn-secondary"
+                        onclick="scrollToSection('categorias')"
+                    >
+                        🌌 Explorar universo
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             BARRA DE ESTADO
+        =========================================== -->
+
+     <section class="status-bar"> 
+ 
+    <div class="status-item"> 
+ 
+        <span class="status-dot"></span> 
+ 
+        <span>GALACTICRACKS ONLINE</span> 
+ 
+    </div> 
+ 
+ 
+    <div class="status-item"> 
+ 
+        ⚽ PASIÓN POR EL FÚTBOL 
+ 
+    </div> 
+ 
+ 
+    <div class="status-item"> 
+ 
+        🚀 NUEVO CONTENIDO 
+ 
+    </div> 
+ 
+</section>
+
+
+<!-- ==========================================
+     QUINIELA GALACTICRACKS
+========================================== -->
+
+<section class="quiniela-section">
+
+    <div class="quiniela-header">
+
+        <!--<span class="section-kicker">
+            🔮 GALACTICRACKS PREDICE
+        </span>-->
+
+        <h4>
+            ⚽ El Debate
+        </h4>
+
+        <p>
+            Demuestra cuánto sabes de fútbol y vota por tu favorito.
+        </p>
+
+    </div>
+
+
+    <div class="tablet-container">
+
+        <div class="tablet-frame">
+
+            <!-- Cámara de la tablet -->
+
+            <div class="tablet-camera"></div>
+
+
+            <!-- Contenido de la quiniela -->
+
+            <div class="tablet-screen">
+
+                <iframe
+                    src="TheBest-tiktok.html"
+                    title="Quiniela Galacticracks"
+                    loading="lazy"
+                ></iframe>
+
+            </div>
+
+
+            <!-- Botón inferior de la tablet -->
+
+            <div class="tablet-button"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+        <!-- ==========================================
+             NOTICIAS
+        =========================================== -->
+
+        <section class="section" id="noticias">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-kicker">
+                        TRANSMISIÓN ACTIVA
+                    </span>
+
+                    <h2>
+                        🔥 Últimas noticias
+                    </h2>
+
+                </div>
+
+
+                <button
+                    class="view-all"
+                    onclick="showMessage('Próximamente podrás ver todas las noticias.')"
+                >
+                    Ver todas →
+                </button>
+
+            </div>
+
+
+            <div class="news-grid" id="newsGrid">
+
+                <!-- JS INSERTARÁ LAS NOTICIAS -->
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             PARTIDOS
+        =========================================== -->
+
+        <!-- ==========================================
+     PARTIDOS
+========================================== -->
+
+<section class="section matches-section" id="partidos">
+
+    <div class="section-header">
+
+        <div>
+
+            <span class="section-kicker">
+                CENTRO DE OPERACIONES
+            </span>
+
+            <h2>
+                ⚽ Próximos partidos
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="matches-container">
+
+
+        <!-- ==========================================
+             AL-NASSR
+        =========================================== -->
+
+        <div class="match-card">
+
+            <div class="match-league">
+
+                🇸🇦 SAUDI PRO LEAGUE
+
+                <span>PRÓXIMO</span>
+
+            </div>
+
+
+            <div class="teams">
+
+                <div class="team">
+
+                    <div class="team-logo">
+                        <img src="img/aln.png">
+                    </div>
+
+                    <strong>
+                        Al-Nassr
+                    </strong>
+
+                </div>
+
+
+                <div class="score">
+
+                    <span>
+                        17 OCT
+                    </span>
+
+                    <small>
+                        09:00 AM
+                    </small>
+
+                </div>
+
+
+                <div class="team">
+
+                    <div class="team-logo">
+                        🟢
+                    </div>
+
+                    <strong>
+                        NEOM SC
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             INTER MIAMI
+        =========================================== -->
+
+        <div class="match-card">
+
+            <div class="match-league">
+
+                🇺🇸 MLS
+
+                <span>PRÓXIMO</span>
+
+            </div>
+
+
+            <div class="teams">
+
+                <div class="team">
+
+                    <div class="team-logo">
+                         <img src="img/miami.png">
+                    </div>
+
+                    <strong>
+                        Inter Miami
+                    </strong>
+
+                </div>
+
+
+                <div class="score">
+
+                    <span>
+                        27 SEP
+                    </span>
+
+                    <small>
+                        05:00 PM
+                    </small>
+
+                </div>
+
+
+                <div class="team">
+
+                    <div class="team-logo">
+                        🟡
+                    </div>
+
+                    <strong>
+                        Columbus Crew
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             REAL MADRID
+        =========================================== -->
+
+        <div class="match-card">
+
+            <div class="match-league">
+
+                🇪🇸 LALIGA
+
+                <span>PRÓXIMO</span>
+
+            </div>
+
+
+            <div class="teams">
+
+                <div class="team">
+
+                    <div class="team-logo">
+                         <img src="img/real.png">
+                    </div>
+
+                    <strong>
+                        Real Madrid
+                    </strong>
+
+                </div>
+
+
+                <div class="score">
+
+                    <span>
+                        10 OCT
+                    </span>
+
+                    <small>
+                        01:00 PM
+                    </small>
+
+                </div>
+
+
+                <div class="team">
+
+                    <div class="team-logo">
+                        🟡
+                    </div>
+
+                    <strong>
+                        Villarreal
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==========================================
+             BARCELONA
+        =========================================== -->
+
+        <div class="match-card">
+
+            <div class="match-league">
+
+                🇪🇸 LALIGA
+
+                <span>PRÓXIMO</span>
+
+            </div>
+
+
+            <div class="teams">
+
+                <div class="team">
+
+                    <div class="team-logo">
+                         <img src="img/barcelona.png">
+                    </div>
+
+                    <strong>
+                        Barcelona
+                    </strong>
+
+                </div>
+
+
+                <div class="score">
+
+                    <span>
+                        10 OCT
+                    </span>
+
+                    <small>
+                        10:30 AM
+                    </small>
+
+                </div>
+
+
+                <div class="team">
+
+                    <div class="team-logo">
+                        🔵
+                    </div>
+
+                    <strong>
+                        Getafe
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+        <!-- ==========================================
+             CATEGORIAS
+        =========================================== -->
+
+        <section class="section" id="categorias">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-kicker">
+                        EXPLORA EL UNIVERSO
+                    </span>
+
+                    <h2>
+                        🌌 Fútbol sin fronteras
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="categories-grid">
+
+
+                <div
+                    class="category-card"
+                   
+                >
+
+                    <div class="category-icon">
+                        🇲🇽
+                    </div>
+
+                    <h3>
+                        Liga MX
+                    </h3>
+
+                    <p>
+                        Noticias y actualidad del fútbol mexicano.
+                    </p>
+
+                    <span>
+                      <a href="https://search.brave.com/search?q=liga+mx&rh_type=sp&view=games&comp_id=262" target="_blank">  Explorar → </a>
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="category-card"
+                  
+                >
+
+                    <div class="category-icon">
+                        🌎
+                    </div>
+
+                    <h3>
+                        Internacional
+                    </h3>
+
+                    <p>
+                        Lo que ocurre en el fútbol mundial.
+                    </p>
+
+                    <span>
+                      <a href="https://www.google.com/search?sca_esv=aa119c56b11d8b81&sxsrf=APpeQns9fGjy6JTyk_8dKZ1tljl30dTPXg:1789889498460&q=futbol+internacional&si=APenkKmS_FT--9TCiIFLBInL7DDRo2I2ju1N9_W9OW4zowOlgzuGDgXuJiIQOpWe0SUJpasf9lKipYvs-H2cI30TRYvRWJvdrjdT23c8yYyv_N1SOQ2VeMfnQKp5jUzeIEIyd0Ce-f9H" target="_blank">  Explorar → </a>
+                    </span>
+
+                
+                </div>
+
+
+
+                <div
+                    class="category-card"
+              
+                >
+
+                    <div class="category-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Champions
+                    </h3>
+
+                    <p>
+                        La máxima competición europea.
+                    </p>
+
+                    <span>
+                      <a href="https://search.brave.com/search?q=champions&rh_type=sp&view=games&comp_id=2" target="_blank">  Explorar → </a>
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="category-card"
+                    onclick="filterCategory('Fichajes')"
+                >
+
+                    <div class="category-icon">
+                        🔥
+                    </div>
+
+                    <h3>
+                        Fichajes
+                    </h3>
+
+                    <p>
+                        Rumores, movimientos y transferencias.
+                    </p>
+
+                    <span>
+                      <a href="https://www.marca.com/futbol/mercado-fichajes.html" target="_blank">  Explorar → </a>
+                    </span>
+
+                    
+
+                </div>
+
+
+
+                <div
+                    class="category-card"
+                    onclick="filterCategory('Leyendas')"
+                >
+
+                    <div class="category-icon">
+                        👑
+                    </div>
+
+                    <h3>
+                        Leyendas
+                    </h3>
+
+                    <p>
+                        Las grandes historias del fútbol.
+                    </p>
+
+                    <span>
+                        Explorar →
+                    </span>
+
+                </div>
+
+
+
+                <div
+                    class="category-card"
+                    onclick="filterCategory('Curiosidades')"
+                >
+
+                    <div class="category-icon">
+                        🤯
+                    </div>
+
+                    <h3>
+                        Curiosidades
+                    </h3>
+
+                    <p>
+                        Datos que probablemente no conocías.
+                    </p>
+
+                    <span>
+                        Explorar →
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             ANALISIS
+        =========================================== -->
+
+        <section class="section analysis-section" id="analisis">
+
+            <div class="analysis-box">
+
+                <div class="analysis-content">
+
+                    <span class="section-kicker">
+                        MÁS ALLÁ DEL RESULTADO
+                    </span>
+
+                    <h2>
+                        🧠 Análisis Galacticracks
+                    </h2>
+
+                    <p>
+                        No solamente te contamos qué ocurrió.
+                        Analizamos lo que realmente está pasando
+                        dentro y fuera de la cancha.
+                    </p>
+
+
+                    <button
+                        class="btn-primary"
+                        onclick="showMessage('La sección de análisis estará disponible próximamente.')"
+                    >
+                        Leer análisis →
+                    </button>
+
+                </div>
+
+
+                <div class="analysis-visual">
+
+                    <div class="orbit orbit-1"></div>
+
+                    <div class="orbit orbit-2"></div>
+
+                    <div class="football-core">
+
+                        
+                        <img src="img/logo.png" width="100">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             CURIOSIDADES
+        =========================================== -->
+
+        <section class="section" id="curiosidades">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="section-kicker">
+                        ARCHIVO GALÁCTICO
+                    </span>
+
+                    <h2>
+                        🤯 ¿Sabías que...?
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="fact-card" id="factCard">
+
+                <div class="fact-icon">
+                    💡
+                </div>
+
+
+                <div>
+
+                    <span>
+                        CURIOSIDAD DEL DÍA
+                    </span>
+
+                    <h3 id="factText">
+
+                        Cargando curiosidad...
+
+                    </h3>
+
+                </div>
+
+
+                <button
+                    class="fact-button"
+                    onclick="nextFact()"
+                >
+                    Otra curiosidad →
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==========================================
+             NEWSLETTER
+        =========================================== -->
+
+        <section class="newsletter">
+
+            <div class="newsletter-content">
+
+                <span class="section-kicker">
+                    ÚNETE AL UNIVERSO
+                </span>
+
+                <h2>
+                    📡 No te pierdas ninguna noticia
+                </h2>
+
+                <p>
+                    Recibe las principales noticias y contenidos
+                    de Galacticracks directamente en tu correo.
+                </p>
+
+
+                <form
+                    class="newsletter-form"
+                    onsubmit="subscribe(event)"
+                >
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Tu correo electrónico"
+                        required
+                    >
+
+                    <button type="submit">
+                        Suscribirme 🚀
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==========================================
+         FOOTER
+    =========================================== -->
+
+    <footer class="footer">
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <img
+                    src="img/logo.png"
+                    alt="Galacticracks"
+                >
+
+                <p>
+                    El fútbol también es un universo.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Navegación
+                </h4>
+
+                <a href="#inicio">
+                    Inicio
+                </a>
+
+                <a href="#noticias">
+                    Noticias
+                </a>
+
+                <a href="#analisis">
+                    Análisis
+                </a>
+
+                <a href="#curiosidades">
+                    Curiosidades
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>
+                    Síguenos
+                </h4>
+
+                <a
+                    href="https://www.facebook.com/galacticracks"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+
+                    Facebook
+                </a>
+
+                <!--<a href="#" onclick="showMessage('Aquí irá tu Instagram.')">
+                    Instagram
+                </a>
+
+                <a href="#" onclick="showMessage('Aquí irá tu TikTok.')">
+                    TikTok
+                </a>-->
+
+                <a
+                    href="https://www.youtube.com/@Galacticracks"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    YouTube
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Galacticracks
+            </span>
+
+            <span>
+                El fútbol también es un universo ⚽🌌
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    >
+        Mensaje
+    </div>
+
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
